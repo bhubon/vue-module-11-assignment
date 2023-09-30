@@ -10,7 +10,6 @@ const userStore = defineStore('userStore', () => {
         email: '',
         password: ''
     });
-    localStorage.setItem('users', JSON.stringify(users.value))
 
     const registerUser = (email, password) => {
         users.value.email = email
@@ -20,18 +19,19 @@ const userStore = defineStore('userStore', () => {
     };
     const loginUser = (email, pass) => {
         if (users.value.email == email && users.value.password == pass) {
-            localStorage.setItem('token',true)
+            localStorage.setItem('token', 111)
             router.push('/');
         } else {
             return "failed"
         }
     }
 
-    const logout = ()=>{
-        localStorage.setItem('token',false)
+    const logout = () => {
+        localStorage.setItem('token', '')
+        router.push('/login');
     }
 
-    return { users, registerUser, loginUser }
+    return { users, registerUser, loginUser, logout }
 });
 
 export { userStore }

@@ -20,7 +20,7 @@ const userManager = userStore();
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="tables.html" @click.prevent="userManager.logoute()">
+                        <a class="nav-link" href="tables.html" @click.prevent="userManager.logout()">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Logout
                         </a>

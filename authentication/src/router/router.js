@@ -16,7 +16,7 @@ const routes = [
     { path: '/register', component: Reegister },
 ];
 
-const isAuthenticated = () => localStorage.getItem('token')
+const isAuthenticated = () =>  localStorage.getItem('token') == 111 
 
 
 const router = createRouter({
@@ -25,7 +25,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !isAuthenticated) {
+    if (to.meta.requiresAuth && !isAuthenticated()) {
         next('/login');
     } else {
         next();
