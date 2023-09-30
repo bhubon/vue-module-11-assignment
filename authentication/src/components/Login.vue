@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { userStore } from '../store/store.js';
+import router from '../router/router';
 const userManager = userStore();
 
 let email = ref('')
@@ -15,14 +16,15 @@ function loginControl() {
     } else if (password.value == '') {
         messages.value.push('Please enter password');
     } else {
-        // let status = userManager.registerUser(email, password)
-
-        // if (status) {
-        //     registered.value = true
-        //     email.value = ''
-        //     password.value = ''
-        //     c_password.value = ''
-        // }
+        let status = userManager.loginUser(email.value, password.value)
+        if (status=='success') {
+            console.log(status)
+            email.value = ''
+            password.value = ''
+            router.push('/')
+        }else{
+            messages.value.push('wrong username or password!');
+        }
     }
 }
 

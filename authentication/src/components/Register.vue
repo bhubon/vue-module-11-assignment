@@ -19,7 +19,7 @@ function registerAUser() {
     } else if (password.value != c_password.value) {
         messages.value.push("Confirm password dosen't match");
     } else {
-        let status = userManager.registerUser(email, password)
+        let status = userManager.registerUser(email.value, password.value)
 
         if (status) {
             registered.value = true

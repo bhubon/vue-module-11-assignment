@@ -16,7 +16,7 @@ const routes = [
     { path: '/register', component: Reegister },
 ];
 
-const isAuthenticated = false;
+const isAuthenticated = () => localStorage.getItem('token')
 
 
 const router = createRouter({
